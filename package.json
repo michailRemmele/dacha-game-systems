@@ -1,0 +1,58 @@
+{
+  "name": "remiz-game-systems",
+  "version": "0.0.0",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
+  "dependencies": {
+    "three": "0.137.5",
+    "uuid-random": "1.0.9"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.16.8",
+    "@babel/core": "7.16.0",
+    "@babel/eslint-parser": "7.16.5",
+    "@babel/plugin-proposal-class-properties": "7.16.0",
+    "@babel/plugin-proposal-object-rest-spread": "7.16.0",
+    "@babel/plugin-proposal-optional-chaining": "7.16.0",
+    "@babel/preset-typescript": "7.15.0",
+    "@types/jest": "27.0.2",
+    "@types/three": "0.137.0",
+    "@typescript-eslint/eslint-plugin": "5.2.0",
+    "@typescript-eslint/parser": "5.2.0",
+    "eslint": "7.32.0",
+    "eslint-config-airbnb-typescript": "14.0.1",
+    "eslint-import-resolver-typescript": "2.5.0",
+    "eslint-plugin-import": "2.25.2",
+    "husky": "7.0.4",
+    "jest": "27.3.1",
+    "ts-jest": "27.0.7",
+    "typescript": "4.4.4"
+  },
+  "files": [
+    "build",
+    "package.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "build": "npm run build:clean && npm run build:esm && npm run build:types",
+    "build:clean": "rm -rf build",
+    "build:esm": "npx babel src --out-dir build --extensions \".ts,.js\" --ignore \"src/**/*.test.ts,src/__mocks__\"",
+    "build:types": "tsc --project tsconfig.types.json",
+    "lint": "eslint .",
+    "test": "jest",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run build"
+  },
+  "description": "Remiz is a JavaScript game engine for building games in browser.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/michailRemmele/remiz.git"
+  },
+  "author": "Mikhail Remmele",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/michailRemmele/remiz/issues"
+  },
+  "homepage": "https://github.com/michailRemmele/remiz#readme"
+}

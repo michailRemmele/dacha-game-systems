@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "baseUrl": ".",
+        "outDir": "./build/",
+
+        "declaration": true,
+
+        "module": "esnext",
+        "moduleResolution": "node",
+
+        "strict": true,
+        "allowJs": true,
+
+        "target": "es6",
+        "esModuleInterop": true,
+
+        "resolveJsonModule": true
+    },
+    "include": [
+        "src/**/*"
+    ]
+}
