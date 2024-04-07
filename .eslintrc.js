@@ -11,12 +11,16 @@ const commonRules = {
     {
       js: 'never',
       ts: 'never',
+      tsx: 'never',
     },
   ],
   'no-param-reassign': 1,
   'no-restricted-properties': 1,
   'prefer-destructuring': 'warn',
   'prefer-exponentiation-operator': 'warn',
+  'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
+  'react/react-in-jsx-scope': 0,
+  'react/no-unused-class-component-methods': 0,
 };
 
 module.exports = {
@@ -24,9 +28,7 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: [
-    'airbnb-base',
-  ],
+  extends: 'airbnb',
   parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaVersion: 9,
@@ -43,13 +45,12 @@ module.exports = {
   },
   overrides: [
     {
-      files: ['*.ts'],
+      files: ['*.ts', '*.tsx'],
       parserOptions: {
         project: './tsconfig.json',
       },
       extends: [
-        'airbnb-base',
-        'airbnb-typescript/base',
+        'airbnb-typescript',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
         'plugin:@typescript-eslint/recommended-requiring-type-checking',
@@ -65,7 +66,7 @@ module.exports = {
   settings: {
     'import/resolver': {
       node: {
-        extensions: ['.js', '.ts'],
+        extensions: ['.js', '.ts', '.jsx', '.tsx'],
       },
     },
   },
