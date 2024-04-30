@@ -38,7 +38,7 @@
     "react-dom": "18.1.0"
   },
   "peerDependencies": {
-    "remiz": ">=0.12.1",
+    "remiz": ">=0.12.1 || >=0.12.3-alpha",
     "remiz-editor": ">=0.0.14",
     "react": ">=18.1.0",
     "react-dom": ">=18.1.0"
