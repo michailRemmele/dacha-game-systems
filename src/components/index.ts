@@ -6,3 +6,5 @@ export type {
   PeriodicalEffectOptions,
   TimeLimitedEffectOptions,
 } from './effect/types';
+
+export { Parallax } from './parallax';

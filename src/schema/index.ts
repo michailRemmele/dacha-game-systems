@@ -1,6 +1,6 @@
 import { en } from './locales/en';
 
-export { effectsSystem } from './systems';
-export { effect } from './components';
+export { effectsSystem, parallaxSystem } from './systems';
+export { effect, parallax } from './components';
 
 export const locales = { en };

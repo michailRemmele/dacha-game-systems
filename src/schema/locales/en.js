@@ -12,5 +12,10 @@ export const en = {
   'components.applicatorOptions.duration.title': 'Duration',
   'components.applicatorOptions.cooldown.title': 'Cooldown',
 
+  'components.parallax.title': 'Parallax',
+  'components.parallax.distance.title': 'Distance',
+
   'systems.effectsSystem.title': 'Effects System',
+
+  'systems.parallaxSystem.title': 'Parallax System',
 };
