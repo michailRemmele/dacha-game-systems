@@ -1,6 +1,6 @@
 {
   "name": "dacha-game-systems",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "exports": {
     ".": {
       "require": "./build/index.js",
