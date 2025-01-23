@@ -1,4 +1,4 @@
-import type { ActorEvent } from 'remiz';
+import type { ActorEvent } from 'dacha';
 
 export const AddEffect = 'AddEffect';
 export const RemoveEffect = 'RemoveEffect';
@@ -15,7 +15,7 @@ export type RemoveEffectEvent = ActorEvent<{
   options: Record<string, unknown>
 }>;
 
-declare module 'remiz' {
+declare module 'dacha' {
   export interface ActorEventMap {
     [AddEffect]: AddEffectEvent
     [RemoveEffect]: RemoveEffectEvent

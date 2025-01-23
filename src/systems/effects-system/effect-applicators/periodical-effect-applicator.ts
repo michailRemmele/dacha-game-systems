@@ -1,4 +1,4 @@
-import type { Actor } from 'remiz';
+import type { Actor } from 'dacha';
 
 import type { EffectScript } from '../effect-script';
 import { Effect } from '../../../components';

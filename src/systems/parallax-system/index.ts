@@ -3,10 +3,10 @@ import {
   System,
   CameraService,
   Transform,
-} from 'remiz';
-import type { Actor, SystemOptions } from 'remiz';
-import { AddActor } from 'remiz/events';
-import type { AddActorEvent } from 'remiz/events';
+} from 'dacha';
+import type { Actor, SystemOptions } from 'dacha';
+import { AddActor } from 'dacha/events';
+import type { AddActorEvent } from 'dacha/events';
 
 import { Parallax } from '../../components';
 
@@ -46,6 +46,10 @@ export class ParallaxSystem extends System {
 
   update(): void {
     const currentCamera = this.cameraService.getCurrentCamera();
+    if (!currentCamera) {
+      return;
+    }
+
     const {
       offsetX: cameraOffsetX,
       offsetY: cameraOffsetY,

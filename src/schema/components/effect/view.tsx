@@ -4,8 +4,8 @@ import {
   Widget,
   useExtension,
   useConfig,
-} from 'remiz-editor';
-import type { WidgetProps } from 'remiz-editor';
+} from 'dacha-workbench';
+import type { WidgetProps } from 'dacha-workbench';
 
 const SYSTEM_NAME = 'EffectsSystem';
 

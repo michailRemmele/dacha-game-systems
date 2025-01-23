@@ -1,5 +1,5 @@
-import { Component } from 'remiz';
-import type { Actor } from 'remiz';
+import { Component } from 'dacha';
+import type { Actor } from 'dacha';
 
 export interface ActiveEffectsConfig {
   list: Array<string>

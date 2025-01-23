@@ -1,13 +1,13 @@
-import { ActorCollection, System } from 'remiz';
+import { ActorCollection, System } from 'dacha';
 import type {
   SystemOptions,
   Scene,
   ActorSpawner,
   UpdateOptions,
   Actor,
-} from 'remiz';
-import { RemoveActor } from 'remiz/events';
-import type { RemoveActorEvent } from 'remiz/events';
+} from 'dacha';
+import { RemoveActor } from 'dacha/events';
+import type { RemoveActorEvent } from 'dacha/events';
 
 import * as EventType from '../../events';
 import type { AddEffectEvent, RemoveEffectEvent } from '../../events';
