@@ -1,34 +1,32 @@
 import {
   ActorCollection,
-  System,
+  SceneSystem,
   CameraService,
   Transform,
 } from 'dacha';
-import type { Actor, SystemOptions } from 'dacha';
+import type { Actor, SceneSystemOptions } from 'dacha';
 import { AddActor } from 'dacha/events';
 import type { AddActorEvent } from 'dacha/events';
 
 import { Parallax } from '../../components';
 
-export class ParallaxSystem extends System {
+export class ParallaxSystem extends SceneSystem {
   private actorCollection: ActorCollection;
   private cameraService: CameraService;
 
-  constructor(options: SystemOptions) {
+  constructor(options: SceneSystemOptions) {
     super();
 
     this.actorCollection = new ActorCollection(options.scene, {
       components: [Transform, Parallax],
     });
-    this.cameraService = options.scene.getService(CameraService);
-  }
+    this.cameraService = options.world.getService(CameraService);
 
-  mount(): void {
     this.actorCollection.forEach((actor) => this.setStartPosition(actor));
     this.actorCollection.addEventListener(AddActor, this.handleAddActor);
   }
 
-  unmount(): void {
+  onSceneDestroy(): void {
     this.actorCollection.removeEventListener(AddActor, this.handleAddActor);
   }
 
