@@ -43,8 +43,8 @@
     "react-dom": "18.1.0"
   },
   "peerDependencies": {
-    "dacha": ">=0.13.0",
-    "dacha-workbench": ">=0.0.22",
+    "dacha": ">=0.15.0",
+    "dacha-workbench": ">=0.0.25",
     "react": ">=18.1.0",
     "react-dom": ">=18.1.0"
   },
