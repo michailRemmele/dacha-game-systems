@@ -1,6 +1,6 @@
-import { ActorCollection, System } from 'dacha';
+import { ActorCollection, SceneSystem } from 'dacha';
 import type {
-  SystemOptions,
+  SceneSystemOptions,
   Scene,
   ActorSpawner,
   UpdateOptions,
@@ -18,7 +18,7 @@ import type { EffectScript } from './effect-script';
 import { effectApplicators } from './effect-applicators';
 import type { EffectApplicator } from './effect-applicators/effect-applicator';
 
-export class EffectsSystem extends System {
+export class EffectsSystem extends SceneSystem {
   private scene: Scene;
   private activeEffectsCollection: ActorCollection;
   private effectsCollection: ActorCollection;
@@ -26,7 +26,7 @@ export class EffectsSystem extends System {
   private scripts: Record<string, Constructor<EffectScript>>;
   private applicatorsMap: Record<string, Record<string, EffectApplicator>>;
 
-  constructor(options: SystemOptions) {
+  constructor(options: SceneSystemOptions) {
     super();
 
     const {
@@ -46,16 +46,14 @@ export class EffectsSystem extends System {
     this.scripts = resources as Record<string, { new(): EffectScript }>;
 
     this.applicatorsMap = {};
-  }
 
-  mount(): void {
     this.scene.addEventListener(EventType.AddEffect, this.handleAddEffect);
     this.scene.addEventListener(EventType.RemoveEffect, this.handleRemoveEffect);
 
     this.activeEffectsCollection.addEventListener(RemoveActor, this.handleActorRemove);
   }
 
-  unmount(): void {
+  onSceneDestroy(): void {
     this.scene.removeEventListener(EventType.AddEffect, this.handleAddEffect);
     this.scene.removeEventListener(EventType.RemoveEffect, this.handleRemoveEffect);
 
