@@ -1,11 +1,17 @@
 import { Component } from 'dacha';
+import { DefineComponent, DefineField } from 'dacha-workbench/decorators';
 
 interface ParallaxConfig {
   distance: number
 }
 
+@DefineComponent({
+  name: 'Parallax',
+})
 export class Parallax extends Component {
+  @DefineField()
   distance: number;
+
   startX: number;
   startY: number;
 
@@ -24,5 +30,3 @@ export class Parallax extends Component {
     });
   }
 }
-
-Parallax.componentName = 'Parallax';

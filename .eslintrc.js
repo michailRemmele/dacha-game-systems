@@ -21,6 +21,7 @@ const commonRules = {
   'react/function-component-definition': [2, { namedComponents: 'arrow-function' }],
   'react/react-in-jsx-scope': 0,
   'react/no-unused-class-component-methods': 0,
+  'react-hooks/exhaustive-deps': 0,
 };
 
 module.exports = {
@@ -28,8 +29,10 @@ module.exports = {
     browser: true,
     node: true,
   },
-  extends: 'airbnb',
-  parser: '@babel/eslint-parser',
+  extends: [
+    'airbnb-base',
+  ],
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 9,
     ecmaFeatures: {
@@ -50,6 +53,8 @@ module.exports = {
         project: './tsconfig.json',
       },
       extends: [
+        'airbnb',
+        'airbnb/hooks',
         'airbnb-typescript',
         'plugin:@typescript-eslint/eslint-recommended',
         'plugin:@typescript-eslint/recommended',
@@ -60,6 +65,7 @@ module.exports = {
         '@typescript-eslint/no-this-alias': 0,
         '@typescript-eslint/lines-between-class-members': 0,
         '@typescript-eslint/explicit-function-return-type': 'warn',
+        '@typescript-eslint/indent': 0,
       },
     },
   ],

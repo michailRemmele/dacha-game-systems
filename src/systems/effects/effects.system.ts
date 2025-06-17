@@ -8,6 +8,7 @@ import type {
 } from 'dacha';
 import { RemoveActor } from 'dacha/events';
 import type { RemoveActorEvent } from 'dacha/events';
+import { DefineSystem } from 'dacha-workbench/decorators';
 
 import * as EventType from '../../events';
 import type { AddEffectEvent, RemoveEffectEvent } from '../../events';
@@ -18,6 +19,9 @@ import type { EffectScript } from './effect-script';
 import { effectApplicators } from './effect-applicators';
 import type { EffectApplicator } from './effect-applicators/effect-applicator';
 
+@DefineSystem({
+  name: 'EffectsSystem',
+})
 export class EffectsSystem extends SceneSystem {
   private scene: Scene;
   private activeEffectsCollection: ActorCollection;
@@ -168,5 +172,3 @@ export class EffectsSystem extends SceneSystem {
     });
   }
 }
-
-EffectsSystem.systemName = 'EffectsSystem';

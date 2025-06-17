@@ -7,9 +7,13 @@ import {
 import type { Actor, SceneSystemOptions } from 'dacha';
 import { AddActor } from 'dacha/events';
 import type { AddActorEvent } from 'dacha/events';
+import { DefineSystem } from 'dacha-workbench/decorators';
 
 import { Parallax } from '../../components';
 
+@DefineSystem({
+  name: 'ParallaxSystem',
+})
 export class ParallaxSystem extends SceneSystem {
   private actorCollection: ActorCollection;
   private cameraService: CameraService;
@@ -62,5 +66,3 @@ export class ParallaxSystem extends SceneSystem {
     });
   }
 }
-
-ParallaxSystem.systemName = 'ParallaxSystem';

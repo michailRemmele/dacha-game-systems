@@ -1,11 +1,15 @@
 import { Component } from 'dacha';
 import type { Actor } from 'dacha';
+import { DefineComponent } from 'dacha-workbench/decorators';
 
 export interface ActiveEffectsConfig {
   list: Array<string>
   map: Record<string, Actor>
 }
 
+@DefineComponent({
+  name: 'ActiveEffects',
+})
 export class ActiveEffects extends Component {
   list: Array<string>;
   map: Record<string, Actor>;
@@ -24,5 +28,3 @@ export class ActiveEffects extends Component {
     });
   }
 }
-
-ActiveEffects.componentName = 'ActiveEffects';
