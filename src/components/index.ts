@@ -1,5 +1,5 @@
-export { ActiveEffects } from './active-effects';
-export { Effect } from './effect';
+export { ActiveEffects } from './active-effects/active-effects.component';
+export { Effect } from './effect/effect.component';
 export type {
   EffectType,
   DelayedEffectOptions,
@@ -7,4 +7,4 @@ export type {
   TimeLimitedEffectOptions,
 } from './effect/types';
 
-export { Parallax } from './parallax';
+export { Parallax } from './parallax/parallax.component';

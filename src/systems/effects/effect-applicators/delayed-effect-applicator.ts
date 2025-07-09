@@ -20,13 +20,11 @@ export class DelayedEffectApplicator extends EffectApplicator {
       return;
     }
 
-    const applicatorOptions = this.actor.getComponent(
-      Effect,
-    ).applicatorOptions as DelayedEffectOptions;
+    const effect = this.actor.getComponent(Effect) as Effect & DelayedEffectOptions;
 
-    applicatorOptions.timer -= deltaTime;
+    effect.timer -= deltaTime;
 
-    if (applicatorOptions.timer <= 0) {
+    if (effect.timer <= 0) {
       this.script.apply();
       this.handleApply();
       this.isFinished = true;

@@ -20,21 +20,19 @@ export class PeriodicalEffectApplicator extends EffectApplicator {
       return;
     }
 
-    const applicatorOptions = this.actor.getComponent(
-      Effect,
-    ).applicatorOptions as PeriodicalEffectOptions;
+    const effect = this.actor.getComponent(Effect) as Effect & PeriodicalEffectOptions;
 
-    applicatorOptions.cooldown -= deltaTime;
+    effect.cooldown -= deltaTime;
 
-    while (applicatorOptions.cooldown <= 0) {
+    while (effect.cooldown <= 0) {
       this.script.apply();
       this.handleApply();
-      applicatorOptions.cooldown += applicatorOptions.frequency;
+      effect.cooldown += effect.frequency;
     }
 
-    if (applicatorOptions.duration) {
-      applicatorOptions.duration -= deltaTime;
-      if (applicatorOptions.duration <= 0) {
+    if (effect.duration) {
+      effect.duration -= deltaTime;
+      if (effect.duration <= 0) {
         this.isFinished = true;
       }
     }

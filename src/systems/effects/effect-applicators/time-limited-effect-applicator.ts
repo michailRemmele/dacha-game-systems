@@ -22,13 +22,11 @@ export class TimeLimitedEffectApplicator extends EffectApplicator {
       return;
     }
 
-    const applicatorOptions = this.actor.getComponent(
-      Effect,
-    ).applicatorOptions as TimeLimitedEffectOptions;
+    const effect = this.actor.getComponent(Effect) as Effect & TimeLimitedEffectOptions;
 
-    applicatorOptions.duration -= deltaTime;
+    effect.duration -= deltaTime;
 
-    if (applicatorOptions.duration <= 0) {
+    if (effect.duration <= 0) {
       this.isFinished = true;
       return;
     }
