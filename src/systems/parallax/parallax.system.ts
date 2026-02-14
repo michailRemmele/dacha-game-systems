@@ -1,8 +1,5 @@
 import {
-  ActorCollection,
-  SceneSystem,
-  CameraService,
-  Transform,
+ ActorCollection, SceneSystem, CameraService, Transform,
 } from 'dacha';
 import type { Actor, SceneSystemOptions } from 'dacha';
 import { AddActor } from 'dacha/events';
@@ -42,8 +39,8 @@ export class ParallaxSystem extends SceneSystem {
     const transform = actor.getComponent(Transform);
     const parallax = actor.getComponent(Parallax);
 
-    parallax.startX = transform.offsetX;
-    parallax.startY = transform.offsetY;
+    parallax.startX = transform.world.position.x;
+    parallax.startY = transform.world.position.y;
   }
 
   update(): void {
@@ -53,16 +50,17 @@ export class ParallaxSystem extends SceneSystem {
     }
 
     const {
-      offsetX: cameraOffsetX,
-      offsetY: cameraOffsetY,
+      world: { position },
     } = currentCamera.getComponent(Transform);
 
     this.actorCollection.forEach((actor) => {
       const transform = actor.getComponent(Transform);
       const parallax = actor.getComponent(Parallax);
 
-      transform.offsetX = parallax.startX + (cameraOffsetX - parallax.startX) * parallax.distance;
-      transform.offsetY = parallax.startY + (cameraOffsetY - parallax.startY) * parallax.distance;
+      transform.world.position.x = parallax.startX
+        + (position.x - parallax.startX) * parallax.distance;
+      transform.world.position.y = parallax.startY
+        + (position.y - parallax.startY) * parallax.distance;
     });
   }
 }
